@@ -5,48 +5,48 @@ export interface projects_d {
 
 export const project_list:projects_d[] = [
     {
-        name: 'chat app',
+        name: 'Chat app',
+        href: 'https://mern-chatapp-frontend-psi.vercel.app/',
+    },
+    {
+        name: 'XBlog app',
+        href: 'https://xblog-amber.vercel.app/signup',
+    },
+    {
+        name: 'Portfolio website',
+        href: 'https://tsportfolio-repo.vercel.app/',
+    },
+    {
+        name: 'Gyan card',
         href: 'https://youtu.be/gp6yoq2a0lY',
     },
     {
-        name: 'Blog app',
-        href: 'https://youtu.be/gp6yoq2a0lY',
+        name: 'Traffic sign board',
+        href: 'https://2bxyuirgwqswmwppdwwgmxtrafficwebapp.streamlit.app/',
     },
     {
-        name: 'portfolio website',
-        href: 'https://youtu.be/gp6yoq2a0lY',
-    },
-    {
-        name: 'gyan card',
-        href: 'https://youtu.be/gp6yoq2a0lY',
-    },
-    {
-        name: 'weather app',
-        href: 'https://youtu.be/gp6yoq2a0lY',
-    },
-    {
-        name: 'traffic sign board',
-        href: 'https://youtu.be/gp6yoq2a0lY',
+        name: 'Spam mail prediction system',
+        href: 'https://spammailpredictionwebapp-lck76iojgroa7aq4xwimnispamprediction.streamlit.app/',
     }
 ]
 
-export const skills_list:string[]=["typescript","nextjs","react","prisma-ORM","expressjs","tailwind","postgresql","mongoDB","python"]
+export const skills_list:string[]=["Typescript","Nextjs","React","Expressjs","Prisma-ORM","TailwindCSS","postgresql","mongoDB","Docker","Python","Machine learning","Tensorflow","Pandas","Keras"]
 
 export const socials_list:projects_d[]=[
     {
         name: 'github',
-        href: 'https://youtu.be/gp6yoq2a0lY',
+        href: 'https://github.com/ganeshkondaka',
     },
     {
         name: 'gmail',
-        href: 'https://youtu.be/gp6yoq2a0lY',
+        href: 'ganeshjo306.com',
     },
     {
-        name: 'X',
-        href: 'https://youtu.be/gp6yoq2a0lY',
+        name: 'twitter',
+        href: 'https://x.com/ganesh_kondaka',
     },
     {
         name: 'linkedin',
-        href: 'https://youtu.be/gp6yoq2a0lY',
+        href: 'hhttps://www.linkedin.com/in/kondaka-ganesh-b402bb252/---',
     },
 ]
