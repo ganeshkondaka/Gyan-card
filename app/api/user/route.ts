@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { NextRequest, NextResponse } from "next/server";
+import {  NextResponse } from "next/server";
 import type { User } from "@prisma/client";
 
 // interface user_i{
@@ -7,60 +7,62 @@ import type { User } from "@prisma/client";
 //     password:string
 // }
 
-export const prisma = new PrismaClient()
+ const prisma = new PrismaClient()
 
 export async function POST() {
     try {
-        const new_user:User = await prisma.user.create({
+        const new_user: User = await prisma.user.create({
             data: {
                 username: "sugreev",
-                password: "sugreev123"    
+                password: "sugreev123"
             }
         })
-        console.log("new user created",new_user)
+        console.log("new user created", new_user)
 
         return NextResponse.json({
-            msg:new_user
+            msg: new_user
         })
     } catch (error) {
-    console.error("Error creating user:", error);
+        console.error("Error creating user:", error);
 
-    return NextResponse.json(
-        { error: "Failed to create user" },
-        { status: 500 }
-      );
+        return NextResponse.json(
+            { error: "Failed to create user" },
+            { status: 500 }
+        );
+    } finally {
+        await prisma.$disconnect(); // Properly close the Prisma client
     }
-} 
+}
 
 
 
-// import { PrismaClient } from "@prisma/client";
-// import { NextResponse } from "next/server";
+// // import { PrismaClient } from "@prisma/client";
+// // import { NextResponse } from "next/server";
 
-// // Initialize Prisma Client
-// export const prisma = new PrismaClient();
+// // // Initialize Prisma Client
+// // export const prisma = new PrismaClient();
 
-// export async function POST() {
-//   try {
-//     // Static data for user creation
-//     const new_user = await prisma.user.create({
-//       data: {
-//         username: "narak",
-//         password: "narak123",
-//       },
-//     });
+// // export async function POST() {
+// //   try {
+// //     // Static data for user creation
+// //     const new_user = await prisma.user.create({
+// //       data: {
+// //         username: "narak",
+// //         password: "narak123",
+// //       },
+// //     });
 
-//     // console.log("New user created:", new_user);
+// //     // console.log("New user created:", new_user);
 
-//     // Return the created user as a JSON response
-//     return NextResponse.json({ msg: new_user });
-//   } catch (error) {
-//     console.error("Error creating user:", error);
+// //     // Return the created user as a JSON response
+// //     return NextResponse.json({ msg: new_user });
+// //   } catch (error) {
+// //     console.error("Error creating user:", error);
 
-//     // Return an error response
-//     return NextResponse.json(
-//       { error: "Failed to create user" },
-//       { status: 500 }
-//     );
-//   }
-// }
+// //     // Return an error response
+// //     return NextResponse.json(
+// //       { error: "Failed to create user" },
+// //       { status: 500 }
+// //     );
+// //   }
+// // }

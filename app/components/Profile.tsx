@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Profile() {
   return (
     <div className="flex  items-center justify-around py-3">
@@ -7,7 +9,7 @@ export default function Profile() {
             {/* <div>From concept to creation, coding websites is my greatest joy.</div> */}
         </div>
         <div className=""> 
-            <img 
+            <Image 
             src="/dp.jpg" 
             alt="ganesh image"
             width={200}

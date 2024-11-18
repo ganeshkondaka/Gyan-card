@@ -28,8 +28,8 @@ export default async function All_todos() {
   return (
     <div>
         {
-            todos.map((todo:Todo)=>(
-                <p >{todo.todo}</p>
+            todos.map((todo:Todo,index)=>(
+                <p key={index} >{todo.todo}</p>
             ))
         }
         <br></br>
