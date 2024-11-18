@@ -10,7 +10,7 @@ export default function Profile() {
         </div>
         <div className=""> 
             <Image 
-            src="/dp.jpg" 
+            src="/dp2.jpg" 
             alt="ganesh image"
             width={200}
             height={200}

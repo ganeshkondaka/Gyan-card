@@ -18,7 +18,7 @@ export const project_list:projects_d[] = [
     },
     {
         name: 'Gyan card',
-        href: 'https://youtu.be/gp6yoq2a0lY',
+        href: 'https://gyan-card.vercel.app/',
     },
     {
         name: 'Traffic sign board',
