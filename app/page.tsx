@@ -82,6 +82,9 @@ export default function Home() {
               Join with Gyan-card
             </span>
           </div>
+            <span className="text-xl font-bold block  text-yellow-500 animate-bounce">
+              Under Development...
+            </span>
         </div>
       </div>
     </main>
