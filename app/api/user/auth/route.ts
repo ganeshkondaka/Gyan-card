@@ -1,35 +1,36 @@
 import { PrismaClient } from "@prisma/client";
-import {  NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import type { User } from "@prisma/client";
 
-// interface user_i{
-//     username:string,
-//     password:string
-// }
+export const prisma = new PrismaClient()
 
-export  const prisma = new PrismaClient()
+export async function POST(req: Request) {
 
-export async function POST() {
+    const { email, name, password } = await req.json()
     try {
         const new_user: User = await prisma.user.create({
             data: {
-                email: "megger",
-                password: "megger123"
+                email: email,
+                name: name,
+                password: password
             }
         })
         console.log("new user created", new_user)
-        localStorage.setItem("local_userID",new_user.id)
 
         return NextResponse.json({
-            msg: new_user,
-            userid:new_user.id
+            user: new_user,
+            success: true,
+            userid: new_user.id
 
         })
     } catch (error) {
-        console.error("Error creating user:", error);
+        console.log("Error creating user:", error);
 
         return NextResponse.json(
-            { error: "Failed to create user" },
+            {
+                error: "Failed to create user",
+                success: false
+            },
             { status: 500 }
         );
     } finally {
@@ -37,35 +38,3 @@ export async function POST() {
     }
 }
 
-
-
-// // import { PrismaClient } from "@prisma/client";
-// // import { NextResponse } from "next/server";
-
-// // // Initialize Prisma Client
-// // export const prisma = new PrismaClient();
-
-// // export async function POST() {
-// //   try {
-// //     // Static data for user creation
-// //     const new_user = await prisma.user.create({
-// //       data: {
-// //         username: "narak",
-// //         password: "narak123",
-// //       },
-// //     });
-
-// //     // console.log("New user created:", new_user);
-
-// //     // Return the created user as a JSON response
-// //     return NextResponse.json({ msg: new_user });
-// //   } catch (error) {
-// //     console.error("Error creating user:", error);
-
-// //     // Return an error response
-// //     return NextResponse.json(
-// //       { error: "Failed to create user" },
-// //       { status: 500 }
-// //     );
-// //   }
-// // }
