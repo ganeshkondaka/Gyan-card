@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 const CreateUserForm = () => {
   const [email, setEmail] = useState("");
@@ -9,8 +10,8 @@ const CreateUserForm = () => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = async () => {
-    if (!email ||!name ||!password){
-       return alert('fill out the feilds')
+    if (!email || !name || !password) {
+      return alert('fill out the feilds')
     }
     try {
       const response = await axios.post("/api/user/auth", { email, name, password });
@@ -90,6 +91,9 @@ const CreateUserForm = () => {
             className="w-full py-3 bg-slate-200 text-zinc-600 hover:text-white font-bold rounded hover:bg-blue-700 transition duration-300 md:text-lg">
             Submit
           </button>
+          <div className="text-center text-zinc-400 pt-5">
+            already have an account..? <Link className="text-violet-600" href={'/pages/signin'}>Signin</Link>
+          </div>
         </form>
       </div>
     </div>
