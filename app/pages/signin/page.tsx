@@ -16,10 +16,12 @@ const SignInForm = () => {
           }
         try {
             const response = await axios.post("/api/user/signin", { email, password });
+            const user_id= response.data.user_id
+            // console.log('response user ',response.data.user_id)
             if (response.data.success) {
-                localStorage.setItem("authToken", response.data.token); // Save JWT to localStorage
                 alert("Sign in successful!");
-                router.push("/pages/gyan_card")
+                localStorage.setItem("local_userID",user_id);
+                router.push(`/pages/gyan_card/${user_id}`)
 
             } else {
                 alert(response.data.message || "Failed to sign in.");
@@ -79,6 +81,8 @@ const SignInForm = () => {
                         Dont have an account..? <Link className="text-violet-600" href={'/pages/signup'}>Signup</Link>
                     </div>
                 </form>
+
+                
 
             </div>
         </div>

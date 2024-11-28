@@ -14,10 +14,14 @@ export async function POST(req: Request, res: NextResponse) {
             }
         })
         if (!user) {
-            return NextResponse.json({ success: false, message: "User not found" });
+            return NextResponse.json({
+                 success: false,
+                 message: "User not found",
+                 
+                });
         }
         console.log('the signed up user is  :', user)
-        return NextResponse.json({ success: true, message: "User found" });
+        return NextResponse.json({ success: true, message: "User found" ,user_id :user.id });
 
     } catch (error) {
         console.log(error)

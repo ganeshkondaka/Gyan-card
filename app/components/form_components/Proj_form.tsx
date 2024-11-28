@@ -27,7 +27,7 @@ const Proj_form = () => {
 
   const submitProjectlu = async () => {
     console.log('the final projectlu', projectlu)
-    const userId = localStorage.getItem("local_userID") || '337c71b3-8e99-44fe-843f-4e438fc137b4'
+    const userId =  localStorage.getItem("local_userID")
     const projectswith_userid = projectlu.map((project) => ({ ...project, userId, }));
 
     try {
@@ -42,29 +42,51 @@ const Proj_form = () => {
 
   console.log('the projectlu', projectlu)
   return (
-    <div>
-      <h1>Create Portfolio</h1>
-      {projectlu.map((project, index) => (
-        <div key={index} style={{ marginBottom: "1rem" }}>
-          <input
-            className="text-black"
-            type="text"
-            placeholder="Project Name"
-            value={project.name}
-            onChange={(e) => handleProjectChange(index, "name", e.target.value)}
-          />
-          <input
-            className="text-black"
-            type="text"
-            placeholder="Project Link"
-            value={project.link}
-            onChange={(e) => handleProjectChange(index, "link", e.target.value)}
-          />
-        </div>
-      ))}
-      <button onClick={addProject}>Add Another Project</button>
-      <button onClick={submitProjectlu}>Submit</button>
+    <div className="bg-gray-900 min-h-auto flex flex-col items-center py-8 px-4 sm:px-8 text-white">
+  <h1 className="text-3xl font-bold mb-6 text-center">Projects</h1>
+  <div className="w-full max-w-lg">
+    {projectlu.map((project, index) => (
+      <div
+        key={index}
+        className="flex flex-col sm:flex-row items-center gap-4 mb-4 bg-gray-800 p-4 rounded-lg shadow-md"
+      >
+        <input
+          className="flex-1 px-3 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          type="text"
+          placeholder="Project Name"
+          value={project.name}
+          onChange={(e) =>
+            handleProjectChange(index, "name", e.target.value)
+          }
+        />
+        <input
+          className="flex-1 px-3 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          type="text"
+          placeholder="Project Link"
+          value={project.link}
+          onChange={(e) =>
+            handleProjectChange(index, "link", e.target.value)
+          }
+        />
+      </div>
+    ))}
+    <div className="flex flex-col sm:flex-row justify-between gap-4">
+      <button
+        onClick={addProject}
+        className="px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md transition-all"
+      >
+        Add Another Project
+      </button>
+      <button
+        onClick={submitProjectlu}
+        className="px-4 py-2 rounded-md bg-slate-200 hover:bg-zinc-500 text-zinc-600  font-semibold shadow-md transition-all"
+      >
+        Submit
+      </button>
     </div>
+  </div>
+</div>
+
   );
 };
 

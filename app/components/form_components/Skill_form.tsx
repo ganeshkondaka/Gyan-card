@@ -10,8 +10,8 @@ const Skills_form = () => {
 
     useEffect(() => {
         // Access localStorage only in the browser
-        const userId = localStorage.getItem("local_userID") || "337c71b3-8e99-44fe-843f-4e438fc137b4";
-        setlocaluser_id(userId);
+        const userId =  localStorage.getItem("local_userID")
+        setlocaluser_id(userId||'');
     }, []);
 
     const handleskills = (csv_value: string) => {
@@ -33,21 +33,27 @@ const Skills_form = () => {
 
     console.log('the skill_lu', skill_lu)
     return (
-        <div>
-            <h1>Create Portfolio</h1>
+        <div className="bg-gray-900 min-h-auto flex flex-col items-center py-8 px-4 sm:px-8 text-white">
+  <h1 className="text-3xl font-bold mb-6 text-center">Skills</h1>
+  <div className="w-full max-w-lg">
+    <div className="mb-6">
+      <input
+        className="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        type="text"
+        placeholder="Enter your skills in CSV format here."
+        value={skill_lu}
+        onChange={(e) => handleskills(e.target.value)}
+      />
+    </div>
+    <button
+      onClick={submitskill_lu}
+      className="w-full px-4 py-2 rounded-md bg-slate-200 hover:bg-zinc-500 text-zinc-600  font-semibold shadow-md transition-all"
+    >
+      Submit
+    </button>
+  </div>
+</div>
 
-            <div style={{ marginBottom: "1rem" }}>
-                <input
-                    className="text-black"
-                    type="text"
-                    placeholder="enter your skills in csv format here."
-                    value={skill_lu}
-                    onChange={(e) => handleskills(e.target.value)}
-                />
-            </div>
-
-            <button onClick={submitskill_lu}>Submit</button>
-        </div>
     );
 };
 
