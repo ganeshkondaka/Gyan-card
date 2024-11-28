@@ -27,11 +27,11 @@ export async function GET(req: Request, res:NextResponse) {
         if (!userData) {
             return NextResponse.json({ success: false, message: "User not found" });
         }
-        console.log('the user data', userData)
+        // console.log('the user data', userData)
 
         return NextResponse.json({ success: true, data: userData });
     } catch (error) {
         console.error("Error fetching user data:", error);
-        return NextResponse.json({ success: false, message: "Internal server error" });
+        return NextResponse.json({ success: false, message: "Internal server errorru" });
     }
 }

@@ -43,7 +43,7 @@ const Proj_form = () => {
   console.log('the projectlu', projectlu)
   return (
     <div className="bg-gray-900 min-h-auto flex flex-col items-center py-8 px-4 sm:px-8 text-white">
-  <h1 className="text-3xl font-bold mb-6 text-center">Projects</h1>
+  <h1 className="text-3xl font-bold mb-6 text-center">Add Projects</h1>
   <div className="w-full max-w-lg">
     {projectlu.map((project, index) => (
       <div

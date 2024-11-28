@@ -3,7 +3,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 const SignInForm = () => {
     const [email, setEmail] = useState("");
@@ -21,7 +21,10 @@ const SignInForm = () => {
             if (response.data.success) {
                 alert("Sign in successful!");
                 localStorage.setItem("local_userID",user_id);
-                router.push(`/pages/gyan_card/${user_id}`)
+                // router.push('/pages/fill_page/')
+                router.push(`/pages/fill_page/`)
+                // redirect('/pages/fill_page')
+
 
             } else {
                 alert(response.data.message || "Failed to sign in.");
