@@ -1,7 +1,7 @@
-import { prisma } from "@/app/db";
+import prisma from "@/dbprisma";
 import { NextResponse } from "next/server";
 
-export async function POST(req: Request, res: NextResponse) {
+export async function POST(req: Request) {
 
     const { email, password } = await req.json()
     console.log('email.password----- :', email, password)

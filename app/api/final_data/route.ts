@@ -1,13 +1,13 @@
-import { prisma } from "@/app/db";
+import prisma from "@/dbprisma";
 import { NextResponse } from "next/server";
 
 
-export async function GET(req: Request, res:NextResponse) {
+export async function GET(req: Request) {
 
     const { searchParams } = new URL(req.url);
     const userId = searchParams.get("userId");
 
-    console.log('teh user id from server :',userId)
+    // console.log('teh user id from server :', userId)
 
     if (!userId) {
         return NextResponse.json({ success: false, message: "User ID is required" });

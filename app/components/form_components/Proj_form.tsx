@@ -14,7 +14,7 @@ const Proj_form = () => {
   
   const handleProjectChange = (index: number, field: keyof Project, value: string) => {
     const updatedProjectlu = [...projectlu];
-    console.log('the updated projectlu', updatedProjectlu)
+    // console.log('the updated projectlu', updatedProjectlu)
     updatedProjectlu[index][field] = value;
     setProjectlu(updatedProjectlu);
   };
@@ -26,21 +26,21 @@ const Proj_form = () => {
 
 
   const submitProjectlu = async () => {
-    console.log('the final projectlu', projectlu)
+    // console.log('the final projectlu', projectlu)
     const userId =  localStorage.getItem("local_userID")
     const projectswith_userid = projectlu.map((project) => ({ ...project, userId, }));
 
     try {
-      console.log("projectswith_userid from client side:", projectswith_userid);
-      const sent_projects = await axios.post("/api/all_data/projs", { projectswith_userid });
-      console.log("projects sent successfully", sent_projects)
+      // console.log("projectswith_userid from client side:", projectswith_userid);
+       await axios.post("/api/all_data/projs", { projectswith_userid });
+      // console.log("projects sent successfully", sent_projects)
 
     } catch (error) {
       console.log("Failed to send projectlu:", error);
     }
   };
 
-  console.log('the projectlu', projectlu)
+  // console.log('the projectlu', projectlu)
   return (
     <div className="bg-gray-900 min-h-auto flex flex-col items-center py-8 px-4 sm:px-8 text-white">
   <h1 className="text-3xl font-bold mb-6 text-center">Add Projects</h1>

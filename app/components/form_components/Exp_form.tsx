@@ -15,7 +15,7 @@ const Exp_form = () => {
 
     const handleExpChange = (index: number, field: keyof exptype, value: string) => {
         const updatedexperiencelu = [...experiencelu];
-        console.log('the updated experiencelu', updatedexperiencelu)
+        // console.log('the updated experiencelu', updatedexperiencelu)
         updatedexperiencelu[index][field] = value;
         setexperiencelu(updatedexperiencelu);
     };
@@ -27,21 +27,21 @@ const Exp_form = () => {
 
 
     const submitexperiencelu = async () => {
-        console.log('the final experiencelu', experiencelu)
+        // console.log('the final experiencelu', experiencelu)
         const userId = await localStorage.getItem("local_userID")
         const exp_userid = experiencelu.map((a_exp) => ({ ...a_exp, userId, }));
 
         try {
-            console.log("exp_userid from client side:", exp_userid);
-            const sent_exp = await axios.post("/api/all_data/work_exp", { exp_userid });
-            console.log("exps sent successfully", sent_exp)
+            // console.log("exp_userid from client side:", exp_userid);
+             await axios.post("/api/all_data/work_exp", { exp_userid });
+            // console.log("exps sent successfully", sent_exp)
 
         } catch (error) {
             console.log("Failed to send experiencelu:", error);
         }
     };
 
-    console.log('the experiencelu', experiencelu)
+    // console.log('the experiencelu', experiencelu)
     return (
         <div className="bg-gray-900 min-h-auto flex flex-col items-center py-8 px-4 sm:px-8 text-white">
             <h1 className="text-3xl font-bold mb-6 text-center">Experience</h1>

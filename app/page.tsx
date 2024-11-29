@@ -1,4 +1,5 @@
 import { ArrowRight, Sparkles } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
@@ -38,7 +39,7 @@ export default function Home() {
           <div className="mt-16 p-8 bg-white rounded-2xl shadow-xl">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/10 to-transparent rounded-lg"></div>
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2000"
                 alt="Portfolio Preview"
                 className="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"

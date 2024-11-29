@@ -1,15 +1,16 @@
-"use client";
+'use client';
 
 import { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
+import { redirect } from "next/navigation";
 
 const CreateUserForm = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const router=useRouter()
+  // const router=useRouter()
 
   const handleSubmit = async () => {
     if (!email || !name || !password) {
@@ -19,9 +20,10 @@ const CreateUserForm = () => {
       const response = await axios.post("/api/user/auth", { email, name, password });
       if (response.data.success) {
         localStorage.setItem("local_userID", response.data.userid);
-        const user_id=response.data.userid
+        // const user_id=response.data.userid
         alert("User registered successfully!");
-        router.push(`/pages/fill_page`)
+        // router.push('/pages/fill_page')
+        redirect('/pages/fill_page')
       } else {
         alert(response.data.message || "Failed to create user.");
       }

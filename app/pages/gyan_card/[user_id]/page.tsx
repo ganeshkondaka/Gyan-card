@@ -4,21 +4,17 @@ import Prof_inner from "@/app/components/card_comps/Prof_inner";
 import Proj_inner from "@/app/components/card_comps/Proj_inner";
 import Skills_inner from "@/app/components/card_comps/Skills_inner";
 import Work_inner from "@/app/components/card_comps/Work_inner";
-import Profile from "@/app/components/Profile";
-import Projects from "@/app/components/Projects";
-import Skills from "@/app/components/Skills";
+
 import Socials from "@/app/components/Socials";
-import Work_exp from "@/app/components/Work_exp";
 
 import type {
-  User as user_type,
-  Projects as project_type,
+   Projects as project_type,
   Work_exp as work_exp_type,
   Skills as skills_type
 } from "@prisma/client";
 
 import axios from "axios";
-import { redirect, useParams } from "next/navigation";
+import {  useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function User_id() {
@@ -28,7 +24,7 @@ export default function User_id() {
   const userid = params?.user_id;
   // useEffect(() => {
   
-    const [userData, setUserData] = useState();
+    // const [userData, setUserData] = useState();
     const [username, setusername] = useState('');
     const [projects, setprojects] = useState<project_type[]>([]);
     const [skills, setskills] = useState<skills_type[]>([]);
@@ -52,7 +48,9 @@ export default function User_id() {
       try {
         const response = await axios.get(`/api/final_data?userId=${userid}`);
         // console.log(response.data.data)
-        setUserData(response.data.data);
+
+        // setUserData(response.data.data);
+
         // console.log('logged state variable is :', userData)
         setprojects(response.data.data.Projects )
         setskills(response.data.data.Skills)
@@ -73,7 +71,7 @@ export default function User_id() {
 
     handle_click()
 
-  }, [])
+  }, [userid])
 
   // console.log('logged user state variable is :', userData)
   // console.log('logged proje state variable is :', projects)

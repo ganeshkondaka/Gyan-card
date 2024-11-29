@@ -1,15 +1,15 @@
-import { prisma } from "@/app/db";
+import prisma from "@/dbprisma";
 import {  NextResponse } from "next/server";
 
 export async function POST(req: Request) {
     const { projectswith_userid } = await req.json();
-    console.log("Received data here:", projectswith_userid);
+    // console.log("Received data here:", projectswith_userid);
 
     try {
         const pro_send = await prisma.projects.createMany({
             data: projectswith_userid,
         });
-        console.log("Data saved to database:", pro_send);
+        // console.log("Data saved to database:", pro_send);
 
         return NextResponse.json({ success: true, data: pro_send });
     } catch (error) {

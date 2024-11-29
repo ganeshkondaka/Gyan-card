@@ -16,22 +16,22 @@ const Skills_form = () => {
 
     const handleskills = (csv_value: string) => {
         const updatedskill_lu = csv_value.split(",");
-        console.log('the updated skill_lu', updatedskill_lu)
+        // console.log('the updated skill_lu', updatedskill_lu)
         setskill_lu(updatedskill_lu);
     };
 
     const submitskill_lu = async () => {
-        console.log('the final skill_lu', skill_lu)
+        // console.log('the final skill_lu', skill_lu)
         try {
-            console.log("skills_userid from client side:", skill_lu);
-            const sent_skills = await axios.post("/api/all_data/skills", { skill_lu , loacal_userID});
-            console.log("skills sent successfully", sent_skills)
+            // console.log("skills_userid from client side:", skill_lu);
+            await axios.post("/api/all_data/skills", { skill_lu , loacal_userID});
+            // console.log("skills sent successfully", sent_skills)
         } catch (error) {
             console.log("Failed to send skill_lu:", error);
         }
     };
 
-    console.log('the skill_lu', skill_lu)
+    // console.log('the skill_lu', skill_lu)
     return (
         <div className="bg-gray-900 min-h-auto flex flex-col items-center py-8 px-4 sm:px-8 text-white">
   <h1 className="text-3xl font-bold mb-6 text-center">Skills</h1>

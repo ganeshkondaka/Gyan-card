@@ -1,9 +1,9 @@
-import { prisma } from "@/app/db";
+import prisma from "@/dbprisma";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
     const { skill_lu, loacal_userID } = await req.json();
-    console.log("Received data here:", skill_lu);
+    // console.log("Received data here:", skill_lu);
 
     try {
         const pro_send = await prisma.skills.create({
@@ -13,7 +13,7 @@ export async function POST(req: Request) {
           
             }
         });
-        console.log("Data saved to database:", pro_send);
+        // console.log("Data saved to database:", pro_send);
 
         return NextResponse.json({ success: true, data: pro_send });
     } catch (error) {

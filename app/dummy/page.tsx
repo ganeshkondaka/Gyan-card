@@ -1,5 +1,5 @@
 import type { User } from "@prisma/client";
-import { prisma } from "../api/user/auth/route";
+import prisma from "@/dbprisma";
 
 
 const get_users=async()=>{
