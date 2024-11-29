@@ -27,6 +27,9 @@ const Proj_form = () => {
 
   const submitProjectlu = async () => {
     // console.log('the final projectlu', projectlu)
+    if (projectlu[0].name ==='' ){
+      return alert('fill out the form')
+    }
     const userId =  localStorage.getItem("local_userID")
     const projectswith_userid = projectlu.map((project) => ({ ...project, userId, }));
 
@@ -54,6 +57,7 @@ const Proj_form = () => {
           className="flex-1 px-3 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
           type="text"
           placeholder="Project Name"
+          required
           value={project.name}
           onChange={(e) =>
             handleProjectChange(index, "name", e.target.value)
@@ -62,6 +66,7 @@ const Proj_form = () => {
         <input
           className="flex-1 px-3 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
           type="text"
+          required
           placeholder="Project Link"
           value={project.link}
           onChange={(e) =>

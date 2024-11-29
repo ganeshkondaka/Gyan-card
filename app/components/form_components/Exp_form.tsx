@@ -28,6 +28,9 @@ const Exp_form = () => {
 
     const submitexperiencelu = async () => {
         // console.log('the final experiencelu', experiencelu)
+        if (experiencelu[0].company ===''||experiencelu[0].duration ===''||experiencelu[0].role ==='' ){
+            return alert('fill out the form')
+          }
         const userId = await localStorage.getItem("local_userID")
         const exp_userid = experiencelu.map((a_exp) => ({ ...a_exp, userId, }));
 

@@ -22,6 +22,9 @@ const Skills_form = () => {
 
     const submitskill_lu = async () => {
         // console.log('the final skill_lu', skill_lu)
+        if (skill_lu[0] === ''|| skill_lu.length === 0 ){
+          return alert('fill out the form')
+        }
         try {
             // console.log("skills_userid from client side:", skill_lu);
             await axios.post("/api/all_data/skills", { skill_lu , loacal_userID});
