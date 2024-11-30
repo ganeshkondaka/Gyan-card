@@ -31,7 +31,7 @@ const Proj_form = () => {
       return alert('fill out the form')
     }
     const userId =  localStorage.getItem("local_userID")
-    const projectswith_userid = projectlu.map((project) => ({ ...project, userId, }));
+    const projectswith_userid = projectlu.map((project) => ({ ...project, userId }));
 
     try {
       // console.log("projectswith_userid from client side:", projectswith_userid);

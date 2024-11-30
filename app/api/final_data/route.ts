@@ -21,6 +21,8 @@ export async function GET(req: Request) {
                 Projects: true,
                 Skills: true,
                 Work_exp: true,
+                ImgQuote:true,
+                Socials:true
             },
         });
 
@@ -31,7 +33,7 @@ export async function GET(req: Request) {
 
         return NextResponse.json({ success: true, data: userData });
     } catch (error) {
-        console.error("Error fetching user data:", error);
+        console.log("Error fetching user data:", error);
         return NextResponse.json({ success: false, message: "Internal server errorru" });
     }
 }

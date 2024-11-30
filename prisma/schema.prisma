@@ -23,6 +23,8 @@ model User {
   Projects  Projects[]
   Skills    Skills[]
   Work_exp  Work_exp[]
+  ImgQuote  ImgQuote[]
+  Socials   Socials[]
 }
 
 model Projects {
@@ -49,6 +51,26 @@ model Work_exp {
   company   String
   role      String
   duration  String
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime?
+}
+
+model ImgQuote {
+  id        String    @id @default(uuid())
+  p_id      String
+  quote     String
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime?
+}
+
+model Socials {
+  id        String    @id @default(uuid())
+  name      String
+  link      String
   user      User      @relation(fields: [userId], references: [id])
   userId    String
   createdAt DateTime  @default(now())
