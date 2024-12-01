@@ -53,7 +53,7 @@ const Profile_form = () => {
           <input
             className="w-auto px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             type="text"
-            placeholder="Enter the tagline or quote for you profile."
+            placeholder="Enter a tagline or quote for you profile."
             value={quote}
             onChange={(e) => setquote(e.target.value)} />
 
@@ -80,7 +80,13 @@ const Profile_form = () => {
             </button>}
           </CldUploadWidget>
 
-        </div>
+          </div>
+          {public_id && (
+          <p className="text-green-500 text-right text-sm mt-2">
+            Image uploaded: <span className="font-bold">✅</span>
+          </p>
+        )}
+
         <p className="text-zinc-500 text-sm mb-4">wait for alert message after clicking submit for confirmation</p>
 
         <button

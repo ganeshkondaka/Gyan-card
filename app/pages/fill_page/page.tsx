@@ -29,7 +29,7 @@ export default function Fill_page() {
         </div>
       </div>
       <hr className='border-1 border-zinc-700' />
-      <p className='text-2xl font-bold mt-5'>Create your Gyan card here...</p>
+      <p className='text-2xl text-center font-bold mt-5'>Create your Gyan card here...</p>
       <Profile_form></Profile_form>
       <Proj_form></Proj_form>
       <Skills_form></Skills_form>
