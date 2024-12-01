@@ -19,7 +19,7 @@ import { Upload } from "lucide-react";
 
 const Profile_form = () => {
   const [loacal_userID, setlocaluser_id] = useState('');
-
+  const [indicator, setindicator] = useState(false);
   const [public_id, setpublic_id] = useState("")
   const [quote, setquote] = useState("")
 
@@ -34,12 +34,14 @@ const Profile_form = () => {
     // if (skill_lu[0] === '' || skill_lu.length === 0) {
     //   return alert('fill out the form')
     // }
+    setindicator(true)
     try {
       // console.log("profile data before from client side:", 'public_id', public_id, 'quote', quote, 'loacal_userID', loacal_userID);
       await axios.post("/api/all_data/profile", { public_id, quote, loacal_userID });
       alert('profile updated..✅')
       // console.log("profile data AFTER sent from client side:", 'public_id', public_id, 'quote', quote, 'loacal_userID', loacal_userID);
     } catch (error) {
+      setindicator(false)
       console.log("Failed to send profile data:", error);
     }
   };
@@ -80,8 +82,8 @@ const Profile_form = () => {
             </button>}
           </CldUploadWidget>
 
-          </div>
-          {public_id && (
+        </div>
+        {public_id && (
           <p className="text-green-500 text-right text-sm mt-2">
             Image uploaded: <span className="font-bold">✅</span>
           </p>
@@ -94,6 +96,11 @@ const Profile_form = () => {
           className="w-full px-4 py-2 rounded-md bg-slate-200 hover:bg-zinc-500 text-zinc-600  font-semibold shadow-md transition-all">
           Submit
         </button>
+        {indicator && (
+          <p className="text-green-500 text-right text-sm mt-2">
+            profile uploaded: <span className="font-bold">✅</span>
+          </p>
+        )}
       </div>
     </div>
 

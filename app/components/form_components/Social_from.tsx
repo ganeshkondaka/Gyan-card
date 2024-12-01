@@ -9,6 +9,7 @@ type Social = {
 };
 
 const Social_form = () => {
+  const [indicator, setindicator] = useState(false);
   const [socialLinks, setSocialLinks] = useState<Social[]>([
     { name: "GitHub", link: "" },
     { name: "Mail", link: "" },
@@ -32,7 +33,7 @@ const Social_form = () => {
       alert("User ID not found. Please log in.");
       return;
     }
-    
+    setindicator(true)
     const socialswith_userid = socialLinks.map((social) => ({
       ...social,
       userId,
@@ -44,6 +45,7 @@ const Social_form = () => {
       // console.log('the social links after are :',socialLinks)
       alert("Social media links submitted successfully!");
     } catch (error) {
+      setindicator(false)
       console.error("Failed to send social media links:", error);
       alert("Failed to submit social media links.");
     }
@@ -78,6 +80,11 @@ const Social_form = () => {
             Submit
           </button>
         </div>
+        {indicator && (
+          <p className="text-green-500 text-right text-sm mt-2">
+            Socials uploaded: <span className="font-bold">✅</span>
+          </p>
+        )}
       </div>
     </div>
   );

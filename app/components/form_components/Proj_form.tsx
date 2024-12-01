@@ -10,6 +10,7 @@ type Project = {
 
 const Proj_form = () => {
   const [projectlu, setProjectlu] = useState<Project[]>([{ name: "", link: "" }]);
+  const [indicator, setindicator] = useState(false);
 
   
   const handleProjectChange = (index: number, field: keyof Project, value: string) => {
@@ -32,6 +33,7 @@ const Proj_form = () => {
     }
     const userId =  localStorage.getItem("local_userID")
     const projectswith_userid = projectlu.map((project) => ({ ...project, userId }));
+    setindicator(true)
 
     try {
       // console.log("projectswith_userid from client side:", projectswith_userid);
@@ -40,6 +42,7 @@ const Proj_form = () => {
       alert('projects updated..✅')
 
     } catch (error) {
+      setindicator(false)
       console.log("Failed to send projectlu:", error);
     }
   };
@@ -91,6 +94,11 @@ const Proj_form = () => {
         Submit
       </button>
     </div>
+    {indicator && (
+          <p className="text-green-500 text-right text-sm mt-2">
+            Projects uploaded: <span className="font-bold">✅</span>
+          </p>
+        )}
   </div>
 </div>
 

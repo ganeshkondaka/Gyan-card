@@ -11,7 +11,7 @@ type exptype = {
 
 const Exp_form = () => {
     const [experiencelu, setexperiencelu] = useState<exptype[]>([{ company: "", role: "", duration: "" }]);
-
+    const [indicator, setindicator] = useState(false);
 
     const handleExpChange = (index: number, field: keyof exptype, value: string) => {
         const updatedexperiencelu = [...experiencelu];
@@ -31,6 +31,7 @@ const Exp_form = () => {
         if (experiencelu[0].company === '' || experiencelu[0].duration === '' || experiencelu[0].role === '') {
             return alert('fill out the form')
         }
+        setindicator(true)
         const userId = await localStorage.getItem("local_userID")
         const exp_userid = experiencelu.map((a_exp) => ({ ...a_exp, userId, }));
 
@@ -40,6 +41,7 @@ const Exp_form = () => {
             // console.log("exps sent successfully", sent_exp)
             alert('Professional experience updated..✅')
         } catch (error) {
+            setindicator(false)
             console.log("Failed to send experiencelu:", error);
         }
     };
@@ -98,6 +100,11 @@ const Exp_form = () => {
                         Submit
                     </button>
                 </div>
+                {indicator && (
+                    <p className="text-green-500 text-right text-sm mt-2">
+                        professional experience uploaded: <span className="font-bold">✅</span>
+                    </p>
+                )}
             </div>
         </div>
 
