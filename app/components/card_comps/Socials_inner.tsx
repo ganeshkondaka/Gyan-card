@@ -25,8 +25,8 @@ export default function Socials_inner({social_links}:{
                 <a href={twitter_link[2]}>  <svg xmlns="http://www.w3.org/2000/svg" color="gray" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" /></svg></a>
                 <a href={linkedin_link[3]}> <svg xmlns="http://www.w3.org/2000/svg" color="gray" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg></a>
             </div>
-            <p className="text-green-800 text-center my-2">© 2024 Ganesh. All rights reserved.</p>
-            <p className="text-slate-400 text-center my-5">Made with ❤️ By  Ganesh</p>
+            <p className="text-green-950 text-center text-sm  pt-8">© 2024 Ganesh. All rights reserved.</p>
+            <p className="text-slate-600 text-center mb-5">Made with ❤️ By  Ganesh</p>
 
         </div>
     )

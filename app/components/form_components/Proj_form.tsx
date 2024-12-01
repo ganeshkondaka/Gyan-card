@@ -37,6 +37,7 @@ const Proj_form = () => {
       // console.log("projectswith_userid from client side:", projectswith_userid);
        await axios.post("/api/all_data/projs", { projectswith_userid });
       // console.log("projects sent successfully", sent_projects)
+      alert('projects updated..✅')
 
     } catch (error) {
       console.log("Failed to send projectlu:", error);
@@ -46,7 +47,7 @@ const Proj_form = () => {
   // console.log('the projectlu', projectlu)
   return (
     <div className="bg-gray-900 min-h-auto flex flex-col items-center py-8 px-4 sm:px-8 text-white">
-  <h1 className="text-3xl font-bold mb-6 text-center">Add Projects</h1>
+  <h1 className="text-2xl font-bold mb-6 text-center">Add Projects</h1>
   <div className="w-full max-w-lg">
     {projectlu.map((project, index) => (
       <div
@@ -75,6 +76,7 @@ const Proj_form = () => {
         />
       </div>
     ))}
+    <p className="text-zinc-500 text-sm mb-4">wait for alert message after clicking submit for confirmation</p>
     <div className="flex flex-col sm:flex-row justify-between gap-4">
       <button
         onClick={addProject}

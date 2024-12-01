@@ -3,7 +3,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { CldUploadWidget } from "next-cloudinary";
+import { CloudinaryUploadWidgetResults, CloudinaryUploadWidgetInfo } from "@cloudinary-util/types";
+
 import { Upload } from "lucide-react";
+
+// interface CloudinaryUploadWidgetResults {
+//   event: string;
+//   info?: {
+//     public_id?: string;
+//     [key: string]: any; // Optional: In case the info object has more properties you don't care to strictly type
+//   };
+// }
+
 
 
 const Profile_form = () => {
@@ -24,9 +35,10 @@ const Profile_form = () => {
     //   return alert('fill out the form')
     // }
     try {
-      console.log("profile data before from client side:", 'public_id', public_id, 'quote', quote, 'loacal_userID', loacal_userID);
+      // console.log("profile data before from client side:", 'public_id', public_id, 'quote', quote, 'loacal_userID', loacal_userID);
       await axios.post("/api/all_data/profile", { public_id, quote, loacal_userID });
-      console.log("profile data AFTER sent from client side:", 'public_id', public_id, 'quote', quote, 'loacal_userID', loacal_userID);
+      alert('profile updated..✅')
+      // console.log("profile data AFTER sent from client side:", 'public_id', public_id, 'quote', quote, 'loacal_userID', loacal_userID);
     } catch (error) {
       console.log("Failed to send profile data:", error);
     }
@@ -45,17 +57,31 @@ const Profile_form = () => {
             value={quote}
             onChange={(e) => setquote(e.target.value)} />
 
-          <CldUploadWidget uploadPreset='guns_preset' onSuccess={(results: any) => {
+          {/* <CldUploadWidget uploadPreset='guns_preset' onSuccess={(results: CloudinaryUploadWidgetResults) => {
             if (results.event === 'success' && results.info?.public_id) {
               setpublic_id(results.info.public_id);
             }
-          }}>
+          }}> */}
+
+          <CldUploadWidget
+            uploadPreset="guns_preset"
+            onSuccess={(results: CloudinaryUploadWidgetResults) => {
+              const info = results.info as CloudinaryUploadWidgetInfo;
+              // if (results.event === "success" && typeof results.info !== "string" && results.info?.public_id) {
+              //     setpublic_id(results.info.public_id);
+              // }
+              if (results.event === "success" && info.public_id) {
+                setpublic_id(info.public_id);
+              }
+            }}
+          >
             {({ open }) => <button className='bg-zinc-800 p-4 rounded-lg' onClick={() => open()}>
-               <Upload className="inline" /> <p className="inline text-center">Upload img</p>
+              <Upload className="inline" /> <p className="inline text-center">Upload img</p>
             </button>}
           </CldUploadWidget>
 
         </div>
+        <p className="text-zinc-500 text-sm mb-4">wait for alert message after clicking submit for confirmation</p>
 
         <button
           onClick={submitprofile}

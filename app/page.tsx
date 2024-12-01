@@ -1,7 +1,7 @@
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Upload_images } from './components/Upload_images';
+// import { Upload_images } from './components/Upload_images';
 
 export default function Home() {
   return (
@@ -94,7 +94,7 @@ export default function Home() {
           <span className="text-xl pt-5 font-bold block text-yellow-400 animate-bounce">
             Under Development...
           </span>
-          <Upload_images></Upload_images>
+          {/* <Upload_images></Upload_images> */}
         </div>
       </div>
     </main>

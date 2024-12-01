@@ -4,10 +4,13 @@ import { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import {  useRouter } from "next/navigation";
+import Loading from "@/app/components/Loading";
 
 const SignInForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false); // Loading state
+
     const router = useRouter()
 
     const handleSubmit = async () => {
@@ -15,9 +18,11 @@ const SignInForm = () => {
             return alert('fill out the feilds')
           }
         try {
+            setLoading(true);
             const response = await axios.post("/api/user/signin", { email, password });
             const user_id= response.data.user_id
             // console.log('response user ',response.data.user_id)
+
             if (response.data.success) {
                 alert("Sign in successful!");
                 localStorage.setItem("local_userID",user_id);
@@ -34,9 +39,23 @@ const SignInForm = () => {
         } catch (error) {
             console.error("Error during sign-in:", error);
             alert("An error occurred. Please try again.");
-        }
+        }finally {
+            setLoading(false);
+          }
     };
 
+    if (loading) {
+        return (
+          <div className="flex justify-center items-center min-h-screen">
+            <div className="loader">
+              <Loading></Loading>
+            </div>
+            {/* Or a custom animation */}
+            <p className="text-lg text-gray-500"></p>
+          </div>
+        );
+      }
+      
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-900 text-gray-200 px-4">
             <div className="bg-gray-800 shadow-lg rounded-lg p-6 w-full max-w-lg">

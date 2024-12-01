@@ -21,7 +21,15 @@ export default function Fill_page() {
   }, []);
 
   return (
-    <div>
+    <div className='bg-slate-900'>
+      <div className='flex flex-col justify-between items-center text-zinc-400 p-1'>
+        <p className='my-5'>alredy have a gyan card..? </p>
+        <div className=' flex justify-center'>
+          <Link className='w-auto rounded-lg p-3 mb-3 bg-blue-500 text-white font-bold' href={`/pages/gyan_card/${userId}`}><button >View Gyan card</button></Link>
+        </div>
+      </div>
+      <hr className='border-1 border-zinc-700' />
+      <p className='text-2xl font-bold mt-5'>Create your Gyan card here...</p>
       <Profile_form></Profile_form>
       <Proj_form></Proj_form>
       <Skills_form></Skills_form>

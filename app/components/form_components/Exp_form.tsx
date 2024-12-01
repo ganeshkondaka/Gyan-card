@@ -28,17 +28,17 @@ const Exp_form = () => {
 
     const submitexperiencelu = async () => {
         // console.log('the final experiencelu', experiencelu)
-        if (experiencelu[0].company ===''||experiencelu[0].duration ===''||experiencelu[0].role ==='' ){
+        if (experiencelu[0].company === '' || experiencelu[0].duration === '' || experiencelu[0].role === '') {
             return alert('fill out the form')
-          }
+        }
         const userId = await localStorage.getItem("local_userID")
         const exp_userid = experiencelu.map((a_exp) => ({ ...a_exp, userId, }));
 
         try {
             // console.log("exp_userid from client side:", exp_userid);
-             await axios.post("/api/all_data/work_exp", { exp_userid });
+            await axios.post("/api/all_data/work_exp", { exp_userid });
             // console.log("exps sent successfully", sent_exp)
-
+            alert('Professional experience updated..✅')
         } catch (error) {
             console.log("Failed to send experiencelu:", error);
         }
@@ -47,7 +47,7 @@ const Exp_form = () => {
     // console.log('the experiencelu', experiencelu)
     return (
         <div className="bg-gray-900 min-h-auto flex flex-col items-center py-8 px-4 sm:px-8 text-white">
-            <h1 className="text-3xl font-bold mb-6 text-center">Experience</h1>
+            <h1 className="text-2xl font-bold mb-6 text-center">Add Professional Experience</h1>
             <div className="w-full max-w-lg">
                 {experiencelu.map((exp, index) => (
                     <div
@@ -83,7 +83,8 @@ const Exp_form = () => {
                         />
                     </div>
                 ))}
-                <div className="flex flex-col sm:flex-row gap-4">
+                <p className="text-zinc-500 text-sm mb-4">wait for alert message after clicking submit for confirmation</p>
+                <div className="flex flex-col sm:flex-row justify-between gap-4">
                     <button
                         onClick={addExp}
                         className="w-full sm:w-auto px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md transition-all"

@@ -51,7 +51,7 @@ const Social_form = () => {
 
   return (
     <div className="bg-gray-900 min-h-auto flex flex-col items-center py-8 px-4 sm:px-8 text-white">
-      <h1 className="text-3xl font-bold mb-6 text-center">Add Social Media Links</h1>
+      <h1 className="text-2xl font-bold mb-6 text-center">Add Social Media Links</h1>
       <div className="w-full max-w-lg">
         {socialLinks.map((social, index) => (
           <div
@@ -69,6 +69,7 @@ const Social_form = () => {
             />
           </div>
         ))}
+          <p className="text-zinc-500 text-sm">wait for alert message after clicking submit for confirmation</p>
         <div className="flex justify-end">
           <button
             onClick={submitSocialLinks}

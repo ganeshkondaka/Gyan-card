@@ -4,26 +4,31 @@ import { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 // import { useRouter } from "next/router";
-import { redirect } from "next/navigation";
+import {  useRouter } from "next/navigation";
+// import { redirect } from "next/navigation";
+import Loading from "@/app/components/Loading";
 
 const CreateUserForm = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  // const router=useRouter()
+  const [loading, setLoading] = useState(false); // Loading state
+
+  const router=useRouter()
 
   const handleSubmit = async () => {
     if (!email || !name || !password) {
       return alert('fill out the feilds')
     }
     try {
+      setLoading(true)
       const response = await axios.post("/api/user/auth", { email, name, password });
       if (response.data.success) {
         localStorage.setItem("local_userID", response.data.userid);
         // const user_id=response.data.userid
         alert("User registered successfully!");
-        // router.push('/pages/fill_page')
-        redirect('/pages/fill_page')
+        router.push('/pages/fill_page')
+        // redirect('/pages/fill_page')
       } else {
         alert(response.data.message || "Failed to create user.");
       }
@@ -33,8 +38,22 @@ const CreateUserForm = () => {
     } catch (error) {
       console.log("Error:", error);
       alert("An error occurred. Please try again.");
+    } finally{
+      setLoading(false)
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="loader">
+          <Loading></Loading>
+        </div>
+        {/* Or a custom animation */}
+        <p className="text-lg text-gray-500"></p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 text-gray-200 px-4">

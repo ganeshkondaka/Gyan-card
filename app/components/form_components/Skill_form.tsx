@@ -29,6 +29,8 @@ const Skills_form = () => {
             // console.log("skills_userid from client side:", skill_lu);
             await axios.post("/api/all_data/skills", { skill_lu , loacal_userID});
             // console.log("skills sent successfully", sent_skills)
+            alert('skills updated..✅')
+
         } catch (error) {
             console.log("Failed to send skill_lu:", error);
         }
@@ -37,7 +39,7 @@ const Skills_form = () => {
     // console.log('the skill_lu', skill_lu)
     return (
         <div className="bg-gray-900 min-h-auto flex flex-col items-center py-8 px-4 sm:px-8 text-white">
-  <h1 className="text-3xl font-bold mb-6 text-center">Skills</h1>
+  <h1 className="text-2xl font-bold mb-6 text-center">Add Skills</h1>
   <div className="w-full max-w-lg">
     <div className="mb-6">
       <input
@@ -48,6 +50,7 @@ const Skills_form = () => {
         onChange={(e) => handleskills(e.target.value)}
       />
     </div>
+    <p className="text-zinc-500 text-sm mb-4">wait for alert message after clicking submit for confirmation</p>
     <button
       onClick={submitskill_lu}
       className="w-full px-4 py-2 rounded-md bg-slate-200 hover:bg-zinc-500 text-zinc-600  font-semibold shadow-md transition-all"
