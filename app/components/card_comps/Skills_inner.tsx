@@ -18,7 +18,7 @@ export default function Skills_inner({ skills_list }: {
             <div className="inline ">
                 {
                     skills_here.map((skill)=>(
-                        <div key={skill} className=" inline-flex text-zinc-400  m-1 md:h-10 p-2 border-2 border-zinc-800 rounded-md hover:bg-zinc-800">{skill}</div>
+                        <div key={skill} className=" inline-flex text-zinc-300  m-1 md:h-10 p-2 border-2 border-zinc-700 rounded-md hover:bg-zinc-800">{skill}</div>
                     ))
                 }
             </div>

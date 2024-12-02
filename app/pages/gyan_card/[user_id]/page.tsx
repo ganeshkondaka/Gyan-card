@@ -109,7 +109,7 @@ export default function User_id() {
       {/* <button onClick={handle_click}>click</button> */}
       {/* </div> */}
 
-      <div className="flex  flex-col max-w-full md:max-w-[52%] border-2 border-zinc-800 m-1 px-4">
+      <div className="flex  flex-col max-w-full md:max-w-[52%] border-2 border-zinc-700 m-1 px-4">
         {/* <h1 className="text-3xl">gyan card</h1> */}
         {/* <Profile ></Profile> */}
 
@@ -140,8 +140,9 @@ export default function User_id() {
 
         </div>
         <div className="mt-8">
-          <hr className=" border-zinc-800" />
+          <hr className=" border-zinc-700" />
           <Socials_inner social_links={socials}></Socials_inner>
+          <hr className=" border-zinc-700" />
         </div>
       </div>
     </div>

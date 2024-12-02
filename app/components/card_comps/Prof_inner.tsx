@@ -35,7 +35,7 @@ export default function Prof_inner({ user_name, prof_data }: ProfInnerProps) {
                 {public_id && (
                     //image prints here
                     <CldImage
-                        className=" object-cover rounded-full border-4 md:border-8 dark:border-zinc-800 border-zinc-900 hover:scale-110 transition-transform duration-300 "
+                        className=" object-cover rounded-full border-8 md:border-8 border-zinc-800  hover:scale-110 transition-transform duration-300 "
                         src={public_id}
                         alt='user image'
                         width={'200'}
