@@ -142,7 +142,7 @@ export default function User_id() {
         <div className="mt-8">
           <hr className=" border-zinc-700" />
           <Socials_inner social_links={socials}></Socials_inner>
-          <hr className=" border-zinc-700" />
+      
         </div>
       </div>
     </div>
