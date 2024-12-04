@@ -10,7 +10,7 @@ export const project_list:projects_d[] = [
     },
     {
         name: 'XBlog app',
-        href: 'https://xblog-amber.vercel.app/signup',
+        href: 'https://xblog-amber.vercel.app/',
     },
     {
         name: 'Portfolio website',
