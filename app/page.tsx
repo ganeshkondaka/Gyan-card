@@ -39,11 +39,11 @@ export default function Home() {
           </Link>
 
           {/* Preview Section */}
-          <div className="mt-16 p-8 bg-green-950 rounded-2xl shadow-xl">
+          <div className="mt-16 bg-green-950 rounded-3xl shadow-xl">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent rounded-lg"></div>
               <Image
-                className="rounded-lg h-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-full"
+                className="rounded-3xl h-full shadow-lg hover:shadow-xl transition-shadow duration-300 w-full"
                 priority
                 src="/gyancard3.jpeg"
                 alt="ganesh image"
