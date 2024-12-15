@@ -25,7 +25,7 @@ export default function Home() {
 
           {/* Subtitle */}
           <p className="text-xl text-gray-300 max-w-2xl mx-auto animate-fade-in-up">
-            "Shrink your career epic into a card so stylish, it’ll make LinkedIn jealous!" 😏📇
+            Shrink your career epic into a card so stylish, it will make LinkedIn jealous! 😏📇
             Create a small portfolio website-like card that showcases your professional journey in a concise way.
           </p>
 
