@@ -7,7 +7,7 @@ import Work_exp from "@/app/components/Work_exp";
 export default function page() {
     return (
         <div className="flex justify-center">
-            <div className="flex  flex-col max-w-full md:max-w-[52%] border-2 border-zinc-800 m-1 px-4">
+            <div className="flex  flex-col max-w-full md:max-w-[52%] border-2 border-zinc-800 m-3 px-4">
                 {/* <h1 className="text-3xl">gyan card</h1> */}
                 <Profile></Profile>
                 <div className="w-full my-2">
