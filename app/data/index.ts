@@ -5,20 +5,28 @@ export interface projects_d {
 
 export const project_list:projects_d[] = [
     {
-        name: 'Chat app',
-        href: 'https://mern-chatapp-frontend-psi.vercel.app/',
+        name: 'Gyan card',
+        href: 'https://gyan-card.vercel.app/',
     },
     {
         name: 'XBlog app',
         href: 'https://xblog-amber.vercel.app/',
     },
     {
+        name: 'Chat app',
+        href: 'https://mern-chatapp-frontend-psi.vercel.app/',
+    },
+    {
         name: 'Portfolio website',
         href: 'https://tsportfolio-repo.vercel.app/',
     },
     {
-        name: 'Gyan card',
-        href: 'https://gyan-card.vercel.app/',
+        name: 'Github themed portfolio',
+        href: 'https://gttheme.vercel.app/',
+    },
+    {
+        name: 'SocNet',
+        href: 'https://socnet-frontend-one.vercel.app/',
     },
     {
         name: 'Traffic sign board',
@@ -30,7 +38,7 @@ export const project_list:projects_d[] = [
     }
 ]
 
-export const skills_list:string[]=["Typescript","Nextjs","React","Expressjs","Prisma-ORM","TailwindCSS","postgresql","mongoDB","Docker","Python","Machine learning","Tensorflow","Pandas","Keras"]
+export const skills_list:string[]=["Typescript","Javascript","Nextjs","React","Expressjs","Prisma-ORM","TailwindCSS","postgresql","mongoDB","Docker","Python","Machine learning","Tensorflow","Pandas","Keras"]
 
 export const socials_list:projects_d[]=[
     {
@@ -47,6 +55,6 @@ export const socials_list:projects_d[]=[
     },
     {
         name: 'linkedin',
-        href: 'hhttps://www.linkedin.com/in/kondaka-ganesh-b402bb252/---',
+        href: 'hhttps://www.linkedin.com/in/kondaka-ganesh-b402bb252/',
     },
 ]
