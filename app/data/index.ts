@@ -5,6 +5,10 @@ export interface projects_d {
 
 export const project_list:projects_d[] = [
     {
+        name: 'AI Content generator',
+        href: 'https://barbasol.vercel.app/',
+    },
+    {
         name: 'Gyan card',
         href: 'https://gyan-card.vercel.app/',
     },
