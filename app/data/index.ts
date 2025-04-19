@@ -13,6 +13,10 @@ export const project_list:projects_d[] = [
         href: 'https://gyan-card.vercel.app/',
     },
     {
+        name: 'Events Manager',
+        href: 'https://eventhives.netlify.app/',
+    },
+    {
         name: 'XBlog app',
         href: 'https://xblog-amber.vercel.app/',
     },
